@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset=" UTF-8">
+    <title>Title</title>
+    <strong> Missing Pet Fourm</strong>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<body>
+<div class ="container">
+    <div class="jumbotron">
+
+        <tr th:each = "pet : ${pets}">
+            <div class ="container">
+                <div class="jumbotron">
+                    <div col-md-9>
+                        <img src="https://fortunedotcom.files.wordpress.com/2019/01/boo.jpg" alt=" Dog" th:width="500">
+                    </div>
+                    <div col-md-3>
+                    </div>
+                    <p><a class="btn btn-primary btn-lg" href="/add" role="but-ton">Add a missing pet</a> </p>
+
+
+                    <strong> Pet Name: </strong>  <br th:text = "${pet.petName}"> </br>
+                    <strong>  Missing since:    </strong> <br th:text = "${pet.lostDate}"></br>
+                    <strong> Pet Type:  </strong><br th:text = "${pet.petType}"> </br>
+                    <strong> Description: </strong>  <br th:text = "${pet.petDescription}"> </br>
+                    <strong> Status: </strong>  <br th:text = "${pet.status}"> </br>
+
+
+
+
+                    <a th:href = "@{/update/{id}(id=${pet.id})}">Update</a>
+
+
+
+
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        </tr>
+    </div>
+</div>
+
+</body>
+</html>

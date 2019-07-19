@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=" UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${pet}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Pet Name: <input type = "text" th:field="*{petName}" />
+    <span th:if="${#fields.hasErrors('petName')}"
+          th:errors = "*{petName}"></span> <br />
+    Pet Type :<input type="text" th:field="*{petType}" />
+    <span th:if="${#fields.hasErrors('petType')}"
+          th:errors = "*{petType}"></span> <br />
+
+    Lost Date :<input type="text" th:field="*{lostDate}" />
+    <span th:if="${#fields.hasErrors('lostDate')}"
+          th:errors = "*{lostDate}"></span> <br />
+
+
+    Description  :<input type="text" th:field="*{petDescription}" />
+    <span th:if="${#fields.hasErrors('petDescription')}"
+          th:errors = "*{petDescription}"></span> <br />
+
+    Pet Status: <select th:field="*{status}">
+    <option th:value="'Lost'" th:text="Lost"></option>
+    <option th:value="'Found'" th:text="Found"></option>
+</select>
+
+
+    <br />
+    <input type ="submit" value="Submit">
+</form>
+</body>
+</html>
